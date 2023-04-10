@@ -1,0 +1,16 @@
+.App {
+  text-align: center;
+}
+
+.mainPageButtons{
+  margin-top: 5%;
+}
+
+.mainPageButtons button{
+  display: block;
+}
+
+
+.bottomLogOut{
+  margin-top: 3%;
+}
