@@ -6,7 +6,7 @@ function MainLog() {
         
         <div className="MainLog">
             <h3>Today's Sightings:</h3>
-            <img src="/home/ashjamesd/Development/code/phase-5/ourbirds/public/images/Eared_Greabe.png" alt='Eared_Greabe'/>
+            <img src="../../public/images/greabe.png" alt='Eared_Greabe'/>
             <p>ashjames.d | 10:41am | Brooklyn</p>
             <Link to='/sightinginfo' id="sightingInfo">more info</Link>
         </div>

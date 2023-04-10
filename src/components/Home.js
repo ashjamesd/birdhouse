@@ -5,22 +5,6 @@ import BottomLogOut from "./BottomLogOut"
 
 function Home() {
 
-    // const [data, setData] = useState({
-    //     name:'',
-    //     age:0,
-    //     date:"",
-    //   });
-    
-    //   useEffect(() => {
-
-    //     fetch("/data")
-    
-    //       .then((r) => r.json())
-    
-    //       .then(data =>console.log(data));
-    
-    //   }, []);
-
     const [data, setData] = useState("");
     
     useEffect(()=>{
@@ -30,7 +14,6 @@ function Home() {
     },[]);
 
     console.log(data.name)
-
 
     return (
         <div className="home">
