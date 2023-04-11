@@ -9,3 +9,47 @@ metadata = MetaData(naming_convention={
 })
 
 db = SQLAlchemy(metadata=metadata)
+
+class Sighting(db.Model, SerializerMixin):
+    __tablename__ = 'sightings'
+
+    sighting_id = db.Column(db.Integer, primary_key = True)
+    created_at = db.Column(db.DateTime, server_default = db.func.now())
+    image = db.Column(db.String)
+    notes = db.Column(db.String)
+
+    location_id = db.Column(db.Integer, db.ForeignKey('locations.location_id'))
+    bird_id = db.Column(db.Integer, db.ForeignKey('birds.bird_id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'))
+
+class User(db.Model, SerializerMixin):
+    __tablename__ = 'users'
+
+    user_id = db.Column(db.Integer, primary_key = True)
+    username = db.Column(db.String)
+    email = db.Column(db.String)
+    password = db.Column(db.String)
+
+class Bird(db.Model, SerializerMixin):
+    __tablename__ = 'birds'
+    
+    bird_id = db.Column(db.Integer, primary_key = True)
+    common_name = db.Column(db.String)
+    scientific_name = db.Column(db.String)
+    body_color = db.Column(db.String)
+    beak_color = db.Column(db.String)
+    eye_color = db.Column(db.String)
+    neck_color = db.Column(db.String)
+    sex = db.Column(db.String)
+    size = db.Column(db.Integer)
+    swim = db.Column(db.String)
+    season = db.Column(db.String)
+
+class Location(db.Model, SerializerMixin):
+    __tablename__ = 'locations'
+
+    location_id = db.Column(db.Integer, primary_key = True)
+    neighborhood = db.Column(db.String)
+    park_name = db.Column(db.String)
+
+

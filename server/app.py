@@ -15,6 +15,8 @@ db.init_app(app)
 
 api = Api(app)
 
+
+#getting the initial bird data
 @app.route('/data', methods=["GET"])
 def get_data():
     data = {
@@ -23,6 +25,19 @@ def get_data():
         'location': "Brooklyn"
     }
 
+    print(data)
+
+    response = make_response(
+        jsonify(data),
+        200
+    )
+
+    return response
+
+#posting new bird data from the log
+@app.route('/data',methods=["POST"])
+def log_bird():
+    data = request.get_json()
     print(data)
 
     response = make_response(
