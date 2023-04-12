@@ -23,11 +23,31 @@ with app.app_context():
     birds = [
         Bird(common_name = 'Red-throated loon', scientific_name = 'Gavia stellata', 
              body_color = 'black',  beak_color = 'black', eye_color = 'red',
-             neck_color = 'red', sex = 'male', size = 24, swim = 'yes', season = 'winter_u'),
+             neck_color = 'red', sex = 'male', size = 24, swim = 'yes', season = 'winter'),
         Bird(common_name = 'Common loon', scientific_name = 'Gavia immer', 
              body_color = 'black',  beak_color = 'black', eye_color = 'red',
              neck_color = 'black', sex = 'male', size = 27, swim = 'yes', 
-             season = 'winter_u')
+             season = 'winter'),
+        Bird(common_name = 'American Bittern', scientific_name = 'Botaurus lentiginosus', 
+            body_color = 'brown',  beak_color = 'yellow', eye_color = 'yellow',
+            neck_color = 'brown', sex = 'female', size = 28, swim = 'no', season = 'summer'),
+        Bird(common_name = 'Snow Goose', scientific_name = 'Chen caerulescens', 
+            body_color = 'white',  beak_color = 'pink', eye_color = 'black',
+            neck_color = 'white', sex = 'male', size = 38, swim = 'yes', season = 'winter'),
+        Bird(common_name = 'Osprey', scientific_name = 'Pandion haliaetus', 
+            body_color = 'brown',  beak_color = 'black', eye_color = 'yellow',
+            neck_color = 'white', sex = 'male', size = 23, swim = 'yes', season = 'summer'),
+        Bird(common_name = 'Black-bellied Plover', scientific_name = 'Pluvialis squatarola', 
+            body_color = 'brown',  beak_color = 'black', eye_color = 'black',
+            neck_color = 'black', sex = 'unknown', size = 11, swim = 'yes', season = 'spring'),
+        Bird(common_name = 'Mourning Dove', scientific_name = 'Zenaida macroura', 
+            body_color = 'gray',  beak_color = 'black', eye_color = 'black', 
+            neck_color = 'white', sex = 'male', size = 11, swim = 'no', season = 'summer')
+
+
+
+
+
     ]
     # birds = [
     #     Bird(common_name = 'Red-throated loon', scientific_name = 'Gavia stellata', 

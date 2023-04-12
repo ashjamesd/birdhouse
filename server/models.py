@@ -22,6 +22,12 @@ class Sighting(db.Model, SerializerMixin):
     bird_id = db.Column(db.Integer, db.ForeignKey('birds.bird_id'))
     user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'))
 
+    @validates('notes')
+    def validates_notes(self,key,notes):
+        if len(notes) < 1:
+            raise ValueError("Please include notes")
+        return notes
+
 class User(db.Model, SerializerMixin):
     __tablename__ = 'users'
 

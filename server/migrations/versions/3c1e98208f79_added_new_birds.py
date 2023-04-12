@@ -1,8 +1,8 @@
-"""third trial
+"""added new birds
 
-Revision ID: f5db05b94e65
+Revision ID: 3c1e98208f79
 Revises: 
-Create Date: 2023-04-11 12:51:16.574136
+Create Date: 2023-04-11 14:10:21.176865
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'f5db05b94e65'
+revision = '3c1e98208f79'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -28,7 +28,7 @@ def upgrade():
     sa.Column('neck_color', sa.String(), nullable=True),
     sa.Column('sex', sa.String(), nullable=True),
     sa.Column('size', sa.Integer(), nullable=True),
-    sa.Column('swim', sa.Boolean(), nullable=True),
+    sa.Column('swim', sa.String(), nullable=True),
     sa.Column('season', sa.String(), nullable=True),
     sa.PrimaryKeyConstraint('bird_id')
     )
