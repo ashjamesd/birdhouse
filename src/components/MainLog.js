@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function MainLog() {
+function MainLog({user, time, location}) {
     return (
         
         <div className="MainLog">
             <h3>Today's Sightings:</h3>
             <img src="../../public/images/greabe.png" alt='Eared_Greabe'/>
-            <p>ashjames.d | 10:41am | Brooklyn</p>
+            <p> {user} | {time} | {location} </p>
             <Link to='/sightinginfo' id="sightingInfo">more info</Link>
         </div>
         

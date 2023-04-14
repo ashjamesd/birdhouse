@@ -83,8 +83,8 @@ def log_bird():
 
 
 #getting individual user logs 
-@app.route('/userlog/<int:id>', methods=['GET'])
-def get_user_log_by_id(id):
+@app.route('/userlog/<int:id>', methods=['DELETE'])
+def delete_user_log_by_id(id):
     user_sighting_del = Sighting.query.filter(Sighting.sighting_id == id).first()
     db.session.delete(user_sighting_del)
     db.session.commit()
@@ -101,8 +101,8 @@ def get_user_log_by_id(id):
 
     return response
 
-@app.route('/userlog/<int:id>', methods=['DELETE'])
-def delete_user_log_by_id(id):
+@app.route('/userlog/<int:id>', methods=['GET'])
+def get_user_log_by_id(id):
     user_sighting = Sighting.query.filter(Sighting.sighting_id == id).first()
 
     user_sighting_dict = user_sighting.to_dict()
