@@ -11,7 +11,7 @@ function MyNests() {
         fetch("/userlog")
         .then((response) => response.json())
         .then(data => setUserLogs(data))
-    },[]);
+    },[userLogs]);
 
     //making a handledelete
     // function handleDeleteLog(deletedLog){
