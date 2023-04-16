@@ -1,5 +1,5 @@
 from app import app
-from models import db, User, Bird, Sighting, Location, Season
+from models import db, User, Bird, Sighting, Location, Season, BirdSeason
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
@@ -19,6 +19,46 @@ with app.app_context():
 
     db.session.add_all(users)
 
+
+    print("creating Bird - Season join...")
+
+    birdseasons = [
+          BirdSeason(bird_id = 1, season_id = 1),
+          BirdSeason(bird_id = 2, season_id = 1),
+          BirdSeason(bird_id = 2, season_id = 7),
+          BirdSeason(bird_id = 2, season_id = 23),
+          BirdSeason(bird_id = 2, season_id = 27),
+          BirdSeason(bird_id = 3, season_id = 1),
+          BirdSeason(bird_id = 3, season_id = 10),
+          BirdSeason(bird_id = 3, season_id = 17),
+          BirdSeason(bird_id = 3, season_id = 21),
+          BirdSeason(bird_id = 3, season_id = 25),
+          BirdSeason(bird_id = 4, season_id = 1),
+          BirdSeason(bird_id = 4, season_id = 10),
+          BirdSeason(bird_id = 4, season_id = 25),
+          BirdSeason(bird_id = 5, season_id = 6),
+          BirdSeason(bird_id = 5, season_id = 12),
+          BirdSeason(bird_id = 6, season_id = 12),
+          BirdSeason(bird_id = 6, season_id = 24),
+          BirdSeason(bird_id = 6, season_id = 30),
+          BirdSeason(bird_id = 7, season_id = 1),
+          BirdSeason(bird_id = 7, season_id = 8),
+          BirdSeason(bird_id = 7, season_id = 22),
+          BirdSeason(bird_id = 7, season_id = 27),
+          BirdSeason(bird_id = 8, season_id = 12),
+          BirdSeason(bird_id = 10, season_id = 3),
+          BirdSeason(bird_id = 10, season_id = 8),
+          BirdSeason(bird_id = 10, season_id = 14),
+          BirdSeason(bird_id = 10, season_id = 20),
+          BirdSeason(bird_id = 10, season_id = 26),
+          BirdSeason(bird_id = 11, season_id = 3),
+          BirdSeason(bird_id = 11, season_id = 10),
+          BirdSeason(bird_id = 11, season_id = 25)
+    ]
+
+    db.session.add_all(birdseasons)
+
+
     print("creating birds...")
     birds = [
         Bird(common_name = 'Red-throated loon', scientific_name = 'Gavia stellata', 
@@ -27,28 +67,44 @@ with app.app_context():
         Bird(common_name = 'Common loon', scientific_name = 'Gavia immer', 
              body_color = 'black',  beak_color = 'black', eye_color = 'red',
              neck_color = 'black', sex = 'male', size = 27, swim = 'yes'),
-        Bird(common_name = 'American Bittern', scientific_name = 'Botaurus lentiginosus', 
-            body_color = 'brown',  beak_color = 'yellow', eye_color = 'yellow',
-            neck_color = 'brown', sex = 'female', size = 28, swim = 'no',),
-        Bird(common_name = 'Snow Goose', scientific_name = 'Chen caerulescens', 
-            body_color = 'white',  beak_color = 'pink', eye_color = 'black',
-            neck_color = 'white', sex = 'male', size = 38, swim = 'yes'),
-        Bird(common_name = 'Osprey', scientific_name = 'Pandion haliaetus', 
-            body_color = 'brown',  beak_color = 'black', eye_color = 'yellow',
-            neck_color = 'white', sex = 'male', size = 23, swim = 'yes'),
-        Bird(common_name = 'Black-bellied Plover', scientific_name = 'Pluvialis squatarola', 
-            body_color = 'brown',  beak_color = 'black', eye_color = 'black',
-            neck_color = 'black', sex = 'unknown', size = 11, swim = 'yes'),
-        Bird(common_name = 'Mourning Dove', scientific_name = 'Zenaida macroura', 
-            body_color = 'gray',  beak_color = 'black', eye_color = 'black', 
-            neck_color = 'white', sex = 'male', size = 11, swim = 'no'),
-        Bird(common_name = 'Testbird', scientific_name = 'test', 
-            body_color = 'brown',  beak_color = 'orange', eye_color = 'black', 
-            neck_color = 'black', sex = 'male', size = 11, swim = 'no')
-        
+        Bird(common_name = 'Pied-billed Grebe', scientific_name = 'Podilymbus podiceps', 
+              body_color = 'brown', beak_color = 'black', eye_color = 'brown', 
+              neck_color = 'white', sex = 'male', size = 13, swim = 'yes'),
+        Bird(common_name = 'Horned Grebe', scientific_name = 'Podiceps auritus', 
+             body_color = 'black', beak_color = 'black', eye_color = 'red', 
+             neck_color = 'black', sex = 'male', size = 13, swim = 'yes'),
+        Bird(common_name = 'Red-necked Grebe', scientific_name = 'Podiceps grisegena', 
+             body_color = 'black', beak_color = 'black', eye_color = 'red', 
+             neck_color = 'red', sex = 'male', size = 27, swim = 'yes'),
+        Bird(common_name = 'Eared Grebe', scientific_name = 'Podiceps nigricollis', 
+             body_color = 'black', beak_color = 'black', eye_color = 'red', neck_color = 'black', 
+             sex = 'male', size = 13, swim = 'yes'),
+        Bird(common_name = 'Northern Gannet', scientific_name = 'Morus bassanus', 
+             body_color = 'white', beak_color = 'yellow', eye_color = 'blue', 
+             neck_color = 'white', sex = 'male', size = 37, swim = 'yes'),
+        Bird(common_name = 'American White Pelican', scientific_name = 'Pelecanus erythrorhynchos', 
+             body_color = 'white', beak_color = 'orange', eye_color = 'brown', 
+             neck_color = 'white', sex = 'male', size = 108, swim = 'yes'),
+        Bird(common_name = 'Brown Pelican', scientific_name = 'Pelecanus occidentalis', 
+             body_color = 'brown', beak_color = 'gray', eye_color = 'brown', 
+             neck_color = 'brown', sex = 'male', size = 137, swim = 'yes'),
+        Bird(common_name = 'Double-crested Cormorant', scientific_name = 'Phalacrocorax auritus', 
+             body_color = 'black', beak_color = 'black', eye_color = 'blue', 
+             neck_color = 'black', sex = 'male', size = 89, swim = 'yes'),
+        Bird(common_name = 'Great Cormorant', scientific_name = 'Phalacrocorax carbo', 
+             body_color = 'black', beak_color = 'black', eye_color = 'green', 
+             neck_color = 'black', sex = 'male', size = 102, swim = 'yes')
     ]
 
     db.session.add_all(birds)
+
+    print("setting sightings...")
+    sightings = [
+        Sighting(image = 'image.jpg', notes = 'notes', location_id = 0, bird_id = 0, user_id = 0),
+    ]
+
+
+    db.session.add_all(sightings)
 
     print("creating seasons...")
     seasons = [
@@ -89,11 +145,7 @@ with app.app_context():
 
     ]
 
-    db.session.add_all(seasons)
-
-
-
-    
+    db.session.add_all(seasons)  
     
     
     db.session.commit()
