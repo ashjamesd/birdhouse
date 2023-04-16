@@ -6,19 +6,13 @@ function MyNests() {
 
     const[userLogs, setUserLogs] = useState([]);
 
+
     // Fetching the user log
     useEffect(()=>{
         fetch("/userlog")
         .then((response) => response.json())
         .then(data => setUserLogs(data))
     },[userLogs]);
-
-    //making a handledelete
-    // function handleDeleteLog(deletedLog){
-    //     const updatedLogs = userLogs.filter((userLog)=>userLog.sighting_id !== deletedLog.sighting_id);
-    //     setUserLogs(updatedLogs)
-    // }
-
     return (
         
         <div className="myNests">

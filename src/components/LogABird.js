@@ -51,6 +51,7 @@ function LogABird() {
             body: JSON.stringify(newUserLog)
         }
         )
+        alert("sighting logged")
     }
 
     return (

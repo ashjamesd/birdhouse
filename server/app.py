@@ -141,5 +141,19 @@ def get_birds():
 
     return response
 
+#individual hard-coded birds
+@app.route('/birds/<int:id>', methods = ['GET'])
+def get_bird_by_ID(id):
+    bird = Bird.query.filter(Bird.bird_id == id).first()
+    
+    bird_dict = bird.to_dict()
+    
+    response = make_response(
+    bird_dict,
+    200
+    )
+
+    return response
+
 if __name__ == '__main__':
     app.run(debug=True)

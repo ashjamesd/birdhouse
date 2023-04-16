@@ -42,7 +42,11 @@ with app.app_context():
             neck_color = 'black', sex = 'unknown', size = 11, swim = 'yes', season = 'spring'),
         Bird(common_name = 'Mourning Dove', scientific_name = 'Zenaida macroura', 
             body_color = 'gray',  beak_color = 'black', eye_color = 'black', 
-            neck_color = 'white', sex = 'male', size = 11, swim = 'no', season = 'summer')
+            neck_color = 'white', sex = 'male', size = 11, swim = 'no', season = 'summer'),
+        Bird(common_name = 'Testbird', scientific_name = 'test', 
+            body_color = 'brown',  beak_color = 'orange', eye_color = 'black', 
+            neck_color = 'black', sex = 'male', size = 11, swim = 'no', season = 'summer')
+        
 
 
 
