@@ -5,20 +5,21 @@ import BottomLogOut from "./BottomLogOut"
 
 function Home() {
 
-    const [data, setData] = useState("");
+    const [log, setlog] = useState("");
+
     
     useEffect(()=>{
-        fetch("/data")
+        fetch("/log")
         .then((response) => response.json())
-        .then(setData)
+        .then(setlog)
     },[]);
 
-    console.log(data.name)
+
 
     return (
         <div className="home">
-            <h1>Welcome to ourbirds</h1>
-            <MainLog />
+            <h1>Welcome to ______</h1>
+            <MainLog user={log.user} time={log.time} location={log.location}/>
             <MainPageButtons />
             <BottomLogOut />
         </div>

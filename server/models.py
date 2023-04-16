@@ -22,6 +22,12 @@ class Sighting(db.Model, SerializerMixin):
     bird_id = db.Column(db.Integer, db.ForeignKey('birds.bird_id'))
     user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'))
 
+    @validates('notes')
+    def validates_notes(self,key,notes):
+        if len(notes) < 1:
+            raise ValueError("Please include notes")
+        return notes
+
 class User(db.Model, SerializerMixin):
     __tablename__ = 'users'
 
@@ -52,4 +58,16 @@ class Location(db.Model, SerializerMixin):
     neighborhood = db.Column(db.String)
     park_name = db.Column(db.String)
 
+class Season(db.Model, SerializerMixin):
+    __tablename__ = 'seasons'
 
+    season_id = db.Column(db.Integer, primary_key = True)
+    name = db.Column(db.String)
+    name_full = db.Column(db.String)
+
+class BirdSeason(db.Model, SerializerMixin):
+    __tablename__ = "birdseason"
+
+    birdseason_id = db.Column(db.Integer, primary_key = True)
+    bird_id = db.Column(db.Integer, db.ForeignKey('birds.bird_id'))
+    season_id = db.Column(db.Integer, db.ForeignKey('seasons.season_id'))
