@@ -47,7 +47,7 @@ def get_user_log():
         200
         )
 
-    return response
+        return response
 
 #posting new bird log from the log
 @app.route('/userlog',methods=["POST"])
