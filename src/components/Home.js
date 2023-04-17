@@ -9,7 +9,12 @@ function Home() {
 
     
     useEffect(()=>{
-        fetch("/log")
+        fetch("/log",{
+            headers : {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            }
+        })
         .then((response) => response.json())
         .then(setlog)
     },[]);

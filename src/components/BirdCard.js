@@ -8,7 +8,11 @@ function BirdCard({id, key, birdID, notes, image, userLogs, created_at}) {
 
     const[birdCard, setBirdCard] = useContext(birdContext);
 
-    console.log({id})
+    useEffect(()=>{
+        console.log({id})
+
+    },[])
+
 
     function handleDeleteClick(userLogs){
         console.log({id})
@@ -19,7 +23,7 @@ function BirdCard({id, key, birdID, notes, image, userLogs, created_at}) {
     
     return (
         <li className = "birdCard">
-            <p>Bird:{birdCard[id]}</p>
+            {/* <p>Bird:{birdCard[id]}</p> */}
             <p>Spotted on: {created_at}</p>
             <p>Notes: {notes}</p>
             <p>{image}</p>

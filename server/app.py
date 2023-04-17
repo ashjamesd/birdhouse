@@ -19,16 +19,16 @@ api = Api(app)
 #getting the initial bird log
 @app.route('/log', methods=["GET"])
 def get_log():
-    log = {
+    loggie = {
         'user':"ashjames.d",
         'time':"8:12am",
         'location': "Brooklyn"
     }
 
-    # print(log)
+    print(loggie)
 
     response = make_response(
-        jsonify(log),
+        jsonify(loggie),
         200
     )
 
@@ -42,18 +42,21 @@ def get_user_log():
         sighting_dict = sighting.to_dict()
         sightings.append(sighting_dict)
 
+        print("hello")
+        print(sightings)
+
         response = make_response(
-        sightings,
-        200
+            sightings,
+            200
         )
 
-        return response
+    return response
 
 #posting new bird log from the log
 @app.route('/userlog',methods=["POST"])
 def log_bird():
+
     log = request.get_json()
-    
 
     user = User.query.filter_by(username = log['user']).first()
 

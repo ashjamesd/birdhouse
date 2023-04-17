@@ -21,29 +21,32 @@ print(filter_birds_one)
 
 if len(filter_birds_one) > 1:
     filter_neck_color = input("input neck color")
-    filter_birds_two = []
+    # filter_birds_two = []
 
     for bird in filter_birds_one:
-        if bird.neck_color == filter_neck_color:
+        if bird.neck_color != filter_neck_color:
 
-            filter_birds_two.append(bird)
+            filter_birds_one.remove(bird)
+    print(filter_birds_one)
     
 else:
 
     print(filter_birds_one[0].common_name)
 
-if len(filter_birds_two) > 1:
-    filter_season = input("what season is it?")
-    filter_birds_three = []
+if len(filter_birds_one) > 1:
+    print(filter_birds_one)
+    filter_eye_color = input("input eye color:")
+    # filter_birds_three = []
 
-    for bird in filter_birds_two:
-        if bird.season == filter_season:
+    for bird in filter_birds_one:
+        if bird.eye_color != filter_eye_color:
 
-            filter_birds_three.append(bird)
-            print(filter_birds_three[0].common_name)
+            filter_birds_one.remove(bird)
+            print(filter_birds_one)
+    # print(filter_birds_one)
 
 else:
-    print(filter_birds_two[0].common_name)
+    print(filter_birds_one[0].common_name)
        
        
        

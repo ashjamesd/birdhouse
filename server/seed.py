@@ -96,15 +96,8 @@ with app.app_context():
              neck_color = 'black', sex = 'male', size = 102, swim = 'yes')
     ]
 
+
     db.session.add_all(birds)
-
-    print("setting sightings...")
-    sightings = [
-        Sighting(image = 'image.jpg', notes = 'notes', location_id = 0, bird_id = 0, user_id = 0),
-    ]
-
-
-    db.session.add_all(sightings)
 
     print("creating seasons...")
     seasons = [
@@ -145,7 +138,11 @@ with app.app_context():
 
     ]
 
-    db.session.add_all(seasons)  
+    db.session.add_all(seasons)
+
+
+
+    
     
     
     db.session.commit()
