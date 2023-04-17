@@ -11,13 +11,13 @@ with app.app_context():
     Sighting.query.delete()
     Location.query.delete()
 
-    print("creating users...")
-    users = [
-        User(username = 'ashjames.d', email = 'ashjames.dean@gmail.com', password = 'password'),
-        User(username = 'cvmk', email = 'chloe@gmail.com', password = 'password')
-    ]
+#     print("creating users...")
+#     users = [
+#         User(username = 'ashjames.d', email = 'ashjames.dean@gmail.com', password = 'password'),
+#         User(username = 'cvmk', email = 'chloe@gmail.com', password = 'password')
+#     ]
 
-    db.session.add_all(users)
+#     db.session.add_all(users)
 
 
     print("creating Bird - Season join...")

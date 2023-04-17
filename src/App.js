@@ -8,6 +8,8 @@ import BirdID from './components/BirdID';
 import MyNests from './components/MyNests';
 import MoreInfo from './components/MoreInfo';
 import { createContext } from 'react';
+import Login from './components/Login';
+import Register from './components/Register';
 
 export const birdContext = createContext();
 
@@ -36,6 +38,8 @@ function App() {
       <Route path="birdlog" element={<LogABird/>}/>
       <Route path="birdidentifier" element={<BirdID/>}/>
       <Route path="mynests" element={<MyNests/>}/>
+      <Route path="login" element={<Login/>}/>
+      <Route path="register" element={<Register/>}/>
     </Routes>
     </birdContext.Provider>
   )

@@ -8,8 +8,14 @@ function BirdCard({id, key, birdID, notes, image, userLogs, created_at}) {
 
     const[birdCard, setBirdCard] = useContext(birdContext);
 
+
     useEffect(()=>{
         console.log({id})
+
+    },[])
+
+    useEffect(()=>{
+        console.log(birdCard)
 
     },[])
 
@@ -23,7 +29,7 @@ function BirdCard({id, key, birdID, notes, image, userLogs, created_at}) {
     
     return (
         <li className = "birdCard">
-            {/* <p>Bird:{birdCard[id]}</p> */}
+            {/* <p>Bird:{birdCard[]}</p> */}
             <p>Spotted on: {created_at}</p>
             <p>Notes: {notes}</p>
             <p>{image}</p>

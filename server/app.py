@@ -1,7 +1,8 @@
-from flask import Flask, make_response, request, jsonify
+from flask import Flask, make_response, request, jsonify, abort
+from flask_bcrypt import Bcrypt
+from flask_session import Session
 from flask_migrate import Migrate
 from flask_restful import Api, Resource
-
 from models import db, User, Bird, Sighting, Location
 
 app = Flask(__name__)
@@ -9,9 +10,11 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.json.compact = False
 
+
 migrate = Migrate(app, db)
 
 db.init_app(app)
+# db.create_all()
 
 api = Api(app)
 
@@ -117,6 +120,57 @@ def get_user_log_by_id(id):
 
     return response
 
+# @app.route("/users", methods = ["POST"])
+# def register_user():
+#     email = request.json['email']
+#     password = request.json['password']
+
+#     user_exists = User.query.filter_by(email = email).first() is not None
+    
+#     if user_exists:
+#         abort(409)
+    
+#     else:
+#         hashed_password = Bcrypt.generate_password_hash(password)
+#         new_user = User(email = email, password = hashed_password)
+        
+#         db.session.add(new_user)
+#         db.session.commit()
+
+#         return jsonify({
+#             'id': new_user.id,
+#             'email': new_user.email
+#         })
+
+@app.route("/users", methods = ["POST"])
+def register_user():
+    register = request.get_json()
+
+    email = User.query.filter_by(email = register['email']).first()
+
+    password = User.query.filter_by(password = register['password']).first()
+
+    if email and password:
+        print('invalid')
+    
+    else:
+        new_user = User(
+            email = register.get('email'),
+            password = register.get('password'),
+            username = register.get('username')
+        )
+
+        db.session.add(new_user)
+        db.session.commit()
+
+        response = make_response(
+            jsonify(register),
+            200
+        )
+    return response
+
+
+
 
 #getting hard-coded users
 @app.route('/users', methods=["GET"])
@@ -130,6 +184,25 @@ def get_users():
     )
 
     return response
+
+@app.route('/users', methods = ["POST"])
+def post_users():
+    email = request.json["email"]
+    password = request.json.get('password')
+    user = User.query.filter_by(email=email, password=password).first() is not None
+    print (user)
+    if user:
+        response = {
+            'message':'Login Successful',
+            'status_code': 200
+        }
+    else:
+        response = {
+            'message':'Invalid username or password',
+            'status_code': 401
+        }
+    return jsonify(response)
+
 
 #hard-coded birds
 @app.route('/birds', methods=["GET"])

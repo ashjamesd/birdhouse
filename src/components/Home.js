@@ -23,7 +23,7 @@ function Home() {
 
     return (
         <div className="home">
-            <h1>Welcome to ______</h1>
+            <h1 className="welcome">Welcome to ______</h1>
             <MainLog user={log.user} time={log.time} location={log.location}/>
             <MainPageButtons />
             <BottomLogOut />

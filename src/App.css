@@ -1,18 +1,70 @@
 .App {
   text-align: center;
+  background-color: #f3e8cd;
 }
 
 .mainPageButtons{
   margin-top: 5%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  
 }
 
 .mainPageButtons button{
   display: block;
+  margin-bottom: 2%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+  height: 50px;
+  background-color: #f3e8cd;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 10px;
+  font-family: georgia;
 }
 
+.logABirdButton:hover{
+  background-color: #233229;
+  color: #f3e8cd;
+}
+
+.birdIdButton:hover{
+  background-color: #233229 ;
+  color: #f3e8cd;
+}
+
+.myNestsButton:hover{
+  background-color: #233229;
+  color: #f3e8cd;
+}
+
+.welcome{
+  text-align: center;
+}
 
 .bottomLogOut{
-  margin-top: 3%;
+  margin-top: 20%;
+}
+
+.bottomLogOut button{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+  height: 50px;
+  background-color: #f3e8cd;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 10px;
+  font-family: georgia;
+
+}
+
+.bottomLogOut:hover button{
+  background-color: #233229;
+  color: #f3e8cd;
 }
 
 .dropdown-basic{
@@ -21,4 +73,13 @@
 
 .returnHome{
   margin-top: 40px;
+}
+
+.home{
+  font-family: Georgia;
+  text-align: center;
+}
+
+body{
+  background-color: #f3e8cd;
 }
