@@ -1,14 +1,16 @@
-from flask import Flask, make_response, request, jsonify, abort
+from flask import Flask, make_response, request, jsonify, abort, session
 from flask_bcrypt import Bcrypt
 from flask_session import Session
 from flask_migrate import Migrate
 from flask_restful import Api, Resource
 from models import db, User, Bird, Sighting, Location
+from config import ApplicationConfig
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.json.compact = False
+app.config.from_object(ApplicationConfig)
 
 
 migrate = Migrate(app, db)
@@ -228,6 +230,9 @@ def login():
         return jsonify({"error":"password does not exist"})
     
     else:
+
+        session["user_id"] = user.user_id
+
         return jsonify({
             "id": user.user_id,
             "email": user.email
