@@ -15,7 +15,7 @@ export const Login = (props) => {
             password: password
         }
 
-        fetch("/users",{
+        fetch("/login",{
             method: "POST",
             headers:{
                 "Content-Type":"application/json"

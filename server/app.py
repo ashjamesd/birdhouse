@@ -16,6 +16,8 @@ migrate = Migrate(app, db)
 db.init_app(app)
 # db.create_all()
 
+server_session = Session(app)
+
 api = Api(app)
 
 
@@ -150,8 +152,12 @@ def register_user():
 
     password = User.query.filter_by(password = register['password']).first()
 
-    if email and password:
+    if email or password:
         print('invalid')
+
+        response = make_response(
+            jsonify({"error":"user already exists"}),409
+        )
     
     else:
         new_user = User(
@@ -185,23 +191,47 @@ def get_users():
 
     return response
 
-@app.route('/users', methods = ["POST"])
-def post_users():
+# @app.route('/users', methods = ["POST"])
+# def post_users():
+#     email = request.json["email"]
+#     password = request.json.get('password')
+#     user = User.query.filter_by(email=email, password=password).first() is not None
+#     print (user)
+#     if user:
+#         response = {
+#             'message':'Login Successful',
+#             'status_code': 200
+#         }
+#     else:
+#         response = {
+#             'message':'Invalid username or password',
+#             'status_code': 401
+#         }
+#     return jsonify(response)
+
+@app.route('/login', methods = ["POST"])
+def login():
     email = request.json["email"]
-    password = request.json.get('password')
-    user = User.query.filter_by(email=email, password=password).first() is not None
-    print (user)
-    if user:
-        response = {
-            'message':'Login Successful',
-            'status_code': 200
-        }
+    password = request.json["password"]
+
+    user = User.query.filter_by(email=email).first()
+
+    # print(user)
+
+    if user is None:
+        return jsonify({"error":"unauthorized"})
+    
+    elif user.email != email:
+        return jsonify({"error":"email does not exist"})
+    
+    elif user.password != password:
+        return jsonify({"error":"password does not exist"})
+    
     else:
-        response = {
-            'message':'Invalid username or password',
-            'status_code': 401
-        }
-    return jsonify(response)
+        return jsonify({
+            "id": user.user_id,
+            "email": user.email
+        })
 
 
 #hard-coded birds
