@@ -33,7 +33,7 @@ function BirdCard({id, key, birdID, notes, image, userLogs, created_at}) {
             <p>Spotted on: {created_at}</p>
             <p>Notes: {notes}</p>
             <p>{image}</p>
-
+            <button onClick={handlePatchClick}>Edit this sighting</button>
             <button onClick={handleDeleteClick} >Remove from Log</button>
         </li>
       )

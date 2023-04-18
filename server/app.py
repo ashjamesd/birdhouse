@@ -11,9 +11,8 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.json.compact = False
 
 app.config['SESSION_TYPE'] = 'sqlalchemy'
-
+app.config['SESSION_SQLALCHEMY_TABLE'] = 'sessions'
 app.config ['SESSION_SQLALCHEMY'] = db
-
 
 migrate = Migrate(app, db)
 
@@ -234,9 +233,9 @@ def login():
     else:
         session['user_id'] = user.user_id
 
-        # new_session = Session(session_id = session.sid, user_id = user.user_id, data = session.items())
-        # server_session.add(new_session)
-        # server_session.commit()
+        new_session = Session(session_id = session.sid, user_id = user.user_id, data = session.items())
+        server_session.add(new_session)
+        server_session.commit()
 
         return jsonify({
             "id": user.user_id,
