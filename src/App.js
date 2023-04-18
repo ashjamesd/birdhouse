@@ -10,6 +10,7 @@ import MoreInfo from './components/MoreInfo';
 import { createContext } from 'react';
 import Login from './components/Login';
 import Register from './components/Register';
+import EditLog from './components/EditLog';
 
 export const birdContext = createContext();
 
@@ -23,6 +24,17 @@ function App() {
         .then(data => {
           // console.log(data);
           setBirdCard(data);
+        })        
+    },[]);
+
+    const[userLog, setUserLog] = useState([]);
+
+    useEffect(()=>{
+        fetch("/userlog")
+        .then((response) => response.json())
+        .then(data => {
+          // console.log(data);
+          setUserLog(data);
         })        
     },[]);
 
@@ -40,6 +52,7 @@ function App() {
       <Route path="mynests" element={<MyNests/>}/>
       <Route path="login" element={<Login/>}/>
       <Route path="register" element={<Register/>}/>
+      <Route path="editlog" element={<EditLog userLog={userLog}/>}/>
     </Routes>
     </birdContext.Provider>
   )

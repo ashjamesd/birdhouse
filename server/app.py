@@ -93,7 +93,7 @@ def log_bird():
     return response
 
 
-#getting individual user logs 
+#deleting individual user logs 
 @app.route('/userlog/<int:id>', methods=['DELETE'])
 def delete_user_log_by_id(id):
     user_sighting_del = Sighting.query.filter(Sighting.sighting_id == id).first()
@@ -124,6 +124,21 @@ def get_user_log_by_id(id):
     )
 
     return response
+
+@app.route('/userlog/<int:id>', methods=['PATCH'])
+def patch_log(id):
+    data = request.get_json()
+    print(data["notes"])
+    edit_bird = Sighting.query.filter(Sighting.sighting_id == id).first()
+    edit_bird.notes = data["notes"]
+    db.session.commit
+
+    if edit_bird:
+        return data
+
+    else:
+        return jsonify({"no":"no"})
+
 
 # @app.route("/users", methods = ["POST"])
 # def register_user():

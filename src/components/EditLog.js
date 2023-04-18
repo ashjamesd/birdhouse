@@ -1,29 +1,32 @@
 import React,{useState, useEffect} from "react";
 
-function EditLog() {
+function EditLog({userLog}) {
 
-    function handlePatchClick(userLogs){
-        e.preventDefault();
-        fetch(`/userlog/${id}`),{
-            method: "PATCH",
-            headers:{
-                "Content Type":"application/json"
-            },
-            body: JSON.stringify({
-                notes: notes
-            })
-        }
+    console.log(userLog[0])
+
+    // function handlePatchClick(userLogs){
+
+        // fetch(`/userlog/${id}`),{
+        //     method: "PATCH",
+        //     headers:{
+        //         "Content Type":"application/json"
+        //     },
+        //     body: JSON.stringify({
+        //         notes: notes
+        //     })
+        // }
 
 
 
     return (
         
-        <div className="bottomLogOut">
-            <button>Log Out</button>
+        <div>
+            <a href="/editlog">
+                <button className="birdIdButton">ID a Bird</button>
+            </a>
         </div>
         
       )
-    }
 }
 
 
