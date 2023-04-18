@@ -12,8 +12,8 @@ metadata = MetaData(naming_convention={
 
 db = SQLAlchemy(metadata=metadata)
 
-def get_uuid():
-    return uuid4().hex
+# def get_uuid():
+#     return uuid4().hex
 
 class Sighting(db.Model, SerializerMixin):
     __tablename__ = 'sightings'

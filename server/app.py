@@ -247,10 +247,11 @@ def login():
     
     else:
         session['user_id'] = user.user_id
+        db.session.commit()
 
-        new_session = Session(session_id = session.sid, user_id = user.user_id, data = session.items())
-        server_session.add(new_session)
-        server_session.commit()
+        # new_session = Session(session_id = session.sid, user_id = user.user_id, data = session.items())
+        # server_session.add(new_session)
+        # server_session.commit()
 
         return jsonify({
             "id": user.user_id,
@@ -260,6 +261,16 @@ def login():
 @app.route('/getsession', methods = ["GET"])
 def get_session():
     return f'The session id is: {session.get("user_id")}'
+
+@app.route('/checksession', methods=["GET"])
+def check_session():
+    user=User.query.filter(User.user_id == session.get('user_id')).first()
+    print(user)
+    if user:
+        return user.to_dict()
+    else: 
+        return {'message':'401: Not Authorized'}, 401
+
 
 
 #hard-coded birds
