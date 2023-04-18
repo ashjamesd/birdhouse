@@ -1,10 +1,12 @@
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 export const Login = (props) => {
 
 
     const[email, setEmail] = useState("");
     const[password, setPassword] = useState("");
+    const[onLogin, setOnLogin] = useState([]);
+
 
     const handleSubmit = (e) =>{
         e.preventDefault();
@@ -23,8 +25,15 @@ export const Login = (props) => {
             body: JSON.stringify(loginAttempt)
         }
         )
-
+        .then((r)=>r.json())
+        .then((user)=>setOnLogin(user))
     }
+
+    useEffect(()=>{
+    console.log(onLogin)
+    },[onLogin])
+
+
 
     return(
         <div className="userAuth">

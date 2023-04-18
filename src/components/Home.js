@@ -3,7 +3,7 @@ import MainLog from './MainLog.js'
 import MainPageButtons from "./MainPageButtons.js";
 import BottomLogOut from "./BottomLogOut"
 
-function Home() {
+function Home({user, handleLogout, onLogout}) {
 
     const [log, setlog] = useState("");
 
@@ -23,10 +23,10 @@ function Home() {
 
     return (
         <div className="home">
-            <h1 className="welcome">Welcome to ______</h1>
+            <h1 className="welcome">Welcome {user.username}</h1>
             <MainLog user={log.user} time={log.time} location={log.location}/>
             <MainPageButtons />
-            <BottomLogOut />
+            <BottomLogOut handleLogout={handleLogout} onLogout={onLogout}/>
         </div>
       )
   }

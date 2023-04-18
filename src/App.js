@@ -17,6 +17,7 @@ export const birdContext = createContext();
 function App() {
 
   const[birdCard, setBirdCard] = useState([]);
+  const [user, setUser] = useState(null);
 
     useEffect(()=>{
         fetch("/birds")
@@ -38,23 +39,51 @@ function App() {
         })        
     },[]);
 
-    // useEffect(()=>{
-    //   console.log(birdCard);
-    // },[birdCard])
+    useEffect(() => {
+      fetch("/checksession").then((response) => {
+        if (response.ok) {
+          response.json().then((user) => setUser(user));
+        }
+      });
+    }, [user]);
 
+    useEffect(()=>{
+      if(user){
+        console.log(user.username)}
+    },[user])
+
+    function onLogout(){
+      setUser(null)
+    }
+
+    
+    function handleLogout(){
+      fetch("/logout",{
+          method: "DELETE",
+      })
+      .then(()=>onLogout())
+  }
+
+  if(user){
+    return(
+      <birdContext.Provider value = {[birdCard, setBirdCard]}>
+      <Routes>
+        <Route path="/" element={<Home user = {user} handleLogout={handleLogout} onLogout={onLogout}/>} />
+        <Route path="/sightinginfo" element={<MoreInfo/>} />
+        <Route path="birdlog" element={<LogABird/>}/>
+        <Route path="birdidentifier" element={<BirdID/>}/>
+        <Route path="mynests" element={<MyNests/>}/>
+        <Route path="login" element={<Login/>}/>
+        <Route path="register" element={<Register/>}/>
+        <Route path="editlog" element={<EditLog userLog={userLog}/>}/>
+      </Routes>
+      </birdContext.Provider>
+    )}
   return(
-    <birdContext.Provider value = {[birdCard, setBirdCard]}>
     <Routes>
-      <Route path="/" element={<Home/>} />
-      <Route path="/sightinginfo" element={<MoreInfo/>} />
-      <Route path="birdlog" element={<LogABird/>}/>
-      <Route path="birdidentifier" element={<BirdID/>}/>
-      <Route path="mynests" element={<MyNests/>}/>
       <Route path="login" element={<Login/>}/>
       <Route path="register" element={<Register/>}/>
-      <Route path="editlog" element={<EditLog userLog={userLog}/>}/>
     </Routes>
-    </birdContext.Provider>
   )
 }
 

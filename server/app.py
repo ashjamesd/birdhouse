@@ -271,6 +271,11 @@ def check_session():
     else: 
         return {'message':'401: Not Authorized'}, 401
 
+@app.route('/logout', methods=["DELETE"])
+def logout():
+    session['user_id'] = None
+    # return{'message':'204:No Content'}, 204
+
 
 
 #hard-coded birds
