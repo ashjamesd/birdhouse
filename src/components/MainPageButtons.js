@@ -19,7 +19,7 @@ function MainPageButtons() {
             </div>
             <div>
                 <a href="/mynests">
-                    <button className="myNestsButton">My Nests</button>
+                    <button className="myNestsButton">Community Nests</button>
                 </a>
             </div>
             {/* <Link to='/birdlog' id="buttonLogBird">Log a Bird</Link>

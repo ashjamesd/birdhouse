@@ -16,7 +16,7 @@ function MyNests({userBase}) {
     return (
         
         <div className="myNests">
-            <h1>My Nests</h1>
+            <h1 className="myNestsHeader" >Community Nests</h1>
             <UserBirdList userLogs = {userLogs} userBase={userBase}/>
             <Link to='/' id="returnHome">Return Home</Link>
         </div>

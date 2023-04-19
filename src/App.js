@@ -11,6 +11,7 @@ import { createContext } from 'react';
 import Login from './components/Login';
 import Register from './components/Register';
 import EditLog from './components/EditLog';
+import Header from './components/Header';
 
 export const birdContext = createContext();
 
@@ -80,7 +81,9 @@ function App() {
 
   if(user){
     return(
+      
       <birdContext.Provider value = {[birdCard, setBirdCard]}>
+      <Header user = {user}/>
       <Routes>
         <Route path="/" element={<Home user = {user} handleLogout={handleLogout} onLogout={onLogout} birdCard={birdCard} userLogs={userLogs} userBase = {userBase}/>} />
         <Route path="/sightinginfo" element={<MoreInfo/>} />

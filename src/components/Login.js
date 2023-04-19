@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 export const Login = (props) => {
 
 
@@ -37,6 +38,7 @@ export const Login = (props) => {
 
     return(
         <div className="userAuth">
+            <h1>Login</h1>
             <form className="login" onSubmit={handleSubmit}>
                 <label htmlFor="email">Email</label>
                 <input value = {email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="input email" id="email" name="email"/>
@@ -44,6 +46,7 @@ export const Login = (props) => {
                 <input value = {password} onChange={(e) => setPassword(e.target.value)} type="password" placeholder="input password" id="password" name="password"/>
                 <button type="submit">Login</button>
             </form>
+            <Link to='/register'>Don't have an account?</Link>
         </div>
     )
 }

@@ -25,7 +25,7 @@ function Home({user, handleLogout, onLogout, birdCard, userLogs, userBase}) {
 
     return (
         <div className="home">
-            <h1 className="welcome">Welcome {user.username}</h1>
+            {/* <h1 className="welcome">Welcome {user.username}</h1> */}
             <MainLog birdCard = {birdCard} userLogs = {userLogs} userBase={userBase}/>
             <MainPageButtons />
             <BottomLogOut handleLogout={handleLogout} onLogout={onLogout}/>

@@ -4,17 +4,28 @@
 }
 
 .mainPageButtons{
-  margin-top: 5%;
+  margin-top: 2%;
   display: block;
   margin-left: auto;
   margin-right: auto;
   
 }
 
+.mainLogHeader{
+  font-size: 16pt;
+}
+
 .mainLogImage{
   margin-left: auto;
   margin-right: auto;
-  width: 30%;
+  width: 20%;
+  margin-bottom: 1%;
+  margin-top: 2%;
+  /* border-style: solid;
+  border-color: #233229;
+  border-width: 1px; */
+  border-radius: 5px;
+  box-shadow: 2px 5px 8px rgb(152, 152, 153);
 }
 
 .mainPageButtons button{
@@ -22,10 +33,11 @@
   margin-bottom: 2%;
   margin-left: auto;
   margin-right: auto;
-  width: 20%;
+  width: 16%;
   height: 50px;
   background-color: #f3e8cd;
   border-style: solid;
+  border-color: #233229;
   border-width: 1px;
   border-radius: 10px;
   font-family: georgia;
@@ -78,6 +90,12 @@
 }
 .dropdownEyeColor{
   margin-top: 6%;
+}
+
+.myNestsHeader{
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 18pt;
 }
 
 .bottomLogOut button{
@@ -135,4 +153,35 @@ body{
   width: 95%;
   margin-right: auto;
   margin-left: auto;
+}
+
+.header{
+  background-color: #f3e8cd;
+  margin-bottom: 2%;
+  margin-top:2%;
+}
+
+.birdsNestLogo{
+  width: 5%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.doubleBirdLogo{
+  width: 3%;
+  position: absolute;
+  left: 30%;
+  top: 4%;
+  margin-top: auto;
+  margin-bottom: auto;
+
+}
+
+.welcomeUser{
+  position: absolute;
+  right: 30%;
+  top: 4%;
+  margin-top: auto;
+  margin-bottom: auto;
+  font-weight: 200;
 }
