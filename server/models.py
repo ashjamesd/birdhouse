@@ -35,6 +35,8 @@ class Sighting(db.Model, SerializerMixin):
 
 class User(db.Model, SerializerMixin):
     __tablename__ = 'users'
+    
+    # serialize_only = ('username')
 
     user_id = db.Column(db.Integer, primary_key = True)
     # unique = True, default = get_uuid)
