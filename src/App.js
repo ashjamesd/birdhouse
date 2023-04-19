@@ -18,6 +18,7 @@ function App() {
 
   const[birdCard, setBirdCard] = useState([]);
   const [user, setUser] = useState(null);
+  const[userBase, setUserBase] = useState([]);
 
     useEffect(()=>{
         fetch("/birds")
@@ -38,6 +39,17 @@ function App() {
           setUserLog(data);
         })        
     },[]);
+
+    useEffect(()=>{
+      fetch("/users")
+      .then((response) => response.json())
+      .then(data => {
+        // console.log(data);
+        setUserBase(data);
+      })        
+  },[]);
+
+    // console.log(userBase)
 
     useEffect(() => {
       fetch("/checksession").then((response) => {
@@ -70,7 +82,7 @@ function App() {
     return(
       <birdContext.Provider value = {[birdCard, setBirdCard]}>
       <Routes>
-        <Route path="/" element={<Home user = {user} handleLogout={handleLogout} onLogout={onLogout} birdCard={birdCard} userLog={userLog}/>} />
+        <Route path="/" element={<Home user = {user} handleLogout={handleLogout} onLogout={onLogout} birdCard={birdCard} userLog={userLog} userBase = {userBase}/>} />
         <Route path="/sightinginfo" element={<MoreInfo/>} />
         <Route path="birdlog" element={<LogABird/>}/>
         <Route path="birdidentifier" element={<BirdID/>}/>

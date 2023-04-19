@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function MainLog({birdCard, userLog}) {
+function MainLog({birdCard, userLog, userBase}) {
     // if(userLog.length >1 ){
 
     //     console.log(userLog.length)}
@@ -15,14 +15,24 @@ function MainLog({birdCard, userLog}) {
         
         let rando = getRandomInt(0, userLog.length) //this is to get a random user log 
 
-        // console.log(rando)
+        console.log(rando)
 
         
-        let randomBirdId = userLog[rando].bird_id //this gets you a random bird id from the log so that you can use the id for info on the bird endpoint
+        let randomBirdId = userLog[rando].bird_id - 1 //this gets you a random bird id from the log so that you can use the id for info on the bird endpoint
 
+
+        let assocUserId = userLog[rando].user_id - 1
+
+        console.log(userBase[assocUserId].username)
+
+
+
+        // console.log(user[assocUserId])
         // console.log(randomBirdId)
 
-        console.log (birdCard[randomBirdId].common_name) //this gets you the name of the bird associated with the random log
+        // console.log(birdCard[2])
+
+        // console.log (birdCard[randomBirdId].common_name) //this gets you the name of the bird associated with the random log
 
         // console.log(userLog.)
 
@@ -32,7 +42,7 @@ function MainLog({birdCard, userLog}) {
             <div className="MainLog">
                 <h4>Today's Sightings:</h4>
                 <img src="../../public/images/greabe.png" alt='Eared_Greabe'/>
-                <p> {birdCard[randomBirdId].common_name} | {userLog[rando].notes} | {} </p>
+                <p> Bird: {birdCard[randomBirdId].common_name} | Log Notes: {userLog[rando].notes} |Logged by: {userBase[assocUserId].username} </p>
                 <Link to='/sightinginfo' id="sightingInfo">more info</Link>
             </div>
             
