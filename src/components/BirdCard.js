@@ -84,9 +84,11 @@ function BirdCard({id, key, birdID, notes, image, userLogs, created_at, userBase
             )}
             <img src={image} className='birdCardImage'></img>
             <p>Logged by: {userBase[useridsubone].username}</p>
-            {!patchMode && <button onClick={handlePatchClick}>Edit Notes</button>}
-            {patchMode && <button onClick={handleSaveClick}>Save</button>}
-            <button onClick={handleDeleteClick} >Remove from Log</button>
+            <div className="birdCardPatchDelete">
+              {!patchMode && <button onClick={handlePatchClick}>Edit Notes</button>}
+              {patchMode && <button onClick={handleSaveClick}>Save</button>}
+              <button onClick={handleDeleteClick} >Remove from Log</button>
+            </div>
         </li>
       )
   }
