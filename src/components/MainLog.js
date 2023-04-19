@@ -41,9 +41,9 @@ function MainLog({birdCard, userLog, userBase}) {
             
             <div className="MainLog">
                 <h4>Today's Sightings:</h4>
-                <img src="../../public/images/greabe.png" alt='Eared_Greabe'/>
+                <img className="mainLogImage" src="https://i.ibb.co/k2mLg1v/Eared-Greabe-Photo.jpg" alt='Eared_Greabe'/>
                 <p> Bird: {birdCard[randomBirdId].common_name} | Log Notes: {userLog[rando].notes} |Logged by: {userBase[assocUserId].username} </p>
-                <Link to='/sightinginfo' id="sightingInfo">more info</Link>
+                {/* <Link to='/sightinginfo' id="sightingInfo" birdCard={birdCard} randomBirdId={randomBirdId} userBase={userBase} userLog={userLog} assocUserId={assocUserId}>more info</Link> */}
             </div>
             
         )
