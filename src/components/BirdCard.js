@@ -4,8 +4,13 @@ import { birdContext } from "../App";
 
 
 
-function BirdCard({id, key, birdID, notes, image, userLogs, created_at, userBase}) {
+function BirdCard({id, key, birdID, notes, image, userLogs, created_at, userBase, userId}) {
   
+  // if(userBase[1].username){
+  //   console.log('yes')}
+  // else{
+  //   console.log('waiting...')
+  // }
   // console.log(typeof userLogs)
 
     const[birdCard, setBirdCard] = useContext(birdContext);
@@ -59,7 +64,8 @@ function BirdCard({id, key, birdID, notes, image, userLogs, created_at, userBase
         setUpdatedNotes(e.target.value)
       }
 
-      let userlogsoneuserid = userLogs[1].user_id - 1
+      let useridsubone = userId - 1
+      console.log(userBase[useridsubone].username)
     
 
     
@@ -74,7 +80,7 @@ function BirdCard({id, key, birdID, notes, image, userLogs, created_at, userBase
                 <p>Notes: {notes}</p>
             )}
             <img src={image}></img>
-            <p>Logged by: {userBase[userlogsoneuserid].username}</p>
+            <p>Logged by: {userBase[useridsubone].username}</p>
             <button onClick={handleDeleteClick} >Remove from Log</button>
             {!patchMode && <button onClick={handlePatchClick}>Edit</button>}
             {patchMode && <button onClick={handleSaveClick}>Save</button>}

@@ -29,16 +29,16 @@ function App() {
         })        
     },[]);
 
-    const[userLog, setUserLog] = useState([]);
+    const[userLogs, setUserLogs] = useState([]);
 
     useEffect(()=>{
         fetch("/userlog")
         .then((response) => response.json())
         .then(data => {
           // console.log(data);
-          setUserLog(data);
+          setUserLogs(data);
         })        
-    },[]);
+    },[]); 
 
     useEffect(()=>{
       fetch("/users")
@@ -82,14 +82,14 @@ function App() {
     return(
       <birdContext.Provider value = {[birdCard, setBirdCard]}>
       <Routes>
-        <Route path="/" element={<Home user = {user} handleLogout={handleLogout} onLogout={onLogout} birdCard={birdCard} userLog={userLog} userBase = {userBase}/>} />
+        <Route path="/" element={<Home user = {user} handleLogout={handleLogout} onLogout={onLogout} birdCard={birdCard} userLogs={userLogs} userBase = {userBase}/>} />
         <Route path="/sightinginfo" element={<MoreInfo/>} />
         <Route path="birdlog" element={<LogABird/>}/>
-        <Route path="birdidentifier" element={<BirdID/>}/>
-        <Route path="mynests" element={<MyNests userBase={userBase}/>}/>
+        <Route path="birdidentifier" element={<BirdID birdCard={birdCard}/>}/>
+        <Route path="mynests" element={<MyNests userBase={userBase} userLogs={userLogs}/>}/>
         <Route path="login" element={<Login/>}/>
         <Route path="register" element={<Register/>}/>
-        <Route path="editlog" element={<EditLog userLog={userLog}/>}/>
+        <Route path="editlog" element={<EditLog userLogs={userLogs}/>}/>
       </Routes>
       </birdContext.Provider>
     )}

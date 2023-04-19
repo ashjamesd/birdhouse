@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function MainLog({birdCard, userLog, userBase}) {
+function MainLog({birdCard, userLogs, userBase}) {
     // if(userLog.length >1 ){
 
     //     console.log(userLog.length)}
-    if(userLog.length >=1){
+    if(userLogs.length >=1){
 
         function getRandomInt(min, max) {
             min = Math.ceil(min);
@@ -13,15 +13,15 @@ function MainLog({birdCard, userLog, userBase}) {
             return Math.floor(Math.random() * (max - min) + min)
         }
         
-        let rando = getRandomInt(0, userLog.length) //this is to get a random user log 
+        let rando = getRandomInt(0, userLogs.length) //this is to get a random user log 
 
         console.log(rando)
 
         
-        let randomBirdId = userLog[rando].bird_id - 1 //this gets you a random bird id from the log so that you can use the id for info on the bird endpoint
+        let randomBirdId = userLogs[rando].bird_id - 1 //this gets you a random bird id from the log so that you can use the id for info on the bird endpoint
 
 
-        let assocUserId = userLog[rando].user_id - 1
+        let assocUserId = userLogs[rando].user_id - 1
 
         console.log(userBase[assocUserId].username)
 
@@ -42,7 +42,7 @@ function MainLog({birdCard, userLog, userBase}) {
             <div className="MainLog">
                 <h4>Today's Sightings:</h4>
                 <img className="mainLogImage" src="https://i.ibb.co/k2mLg1v/Eared-Greabe-Photo.jpg" alt='Eared_Greabe'/>
-                <p> Bird: {birdCard[randomBirdId].common_name} | Log Notes: {userLog[rando].notes} |Logged by: {userBase[assocUserId].username} </p>
+                <p> Bird: {birdCard[randomBirdId].common_name} | Log Notes: {userLogs[rando].notes} |Logged by: {userBase[assocUserId].username} </p>
                 {/* <Link to='/sightinginfo' id="sightingInfo" birdCard={birdCard} randomBirdId={randomBirdId} userBase={userBase} userLog={userLog} assocUserId={assocUserId}>more info</Link> */}
             </div>
             

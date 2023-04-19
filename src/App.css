@@ -54,6 +54,21 @@
   margin-top: 20%;
 }
 
+.dropdown{
+  display: block;
+  margin-top: 2%;
+}
+
+.dropdownBodyColor{
+  margin-top: 1%;
+}
+.dropdownNeckColor{
+  margin-top: 4%;
+}
+.dropdownEyeColor{
+  margin-top: 6%;
+}
+
 .bottomLogOut button{
   display: block;
   margin-left: auto;
@@ -78,7 +93,8 @@
 }
 
 .returnHome{
-  margin-top: 40px;
+  position: absolute;
+  margin-top: 20%;
 }
 
 .home{

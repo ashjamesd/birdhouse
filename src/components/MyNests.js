@@ -2,17 +2,8 @@ import React, {useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import UserBirdList from "./UserBirdList";
 
-function MyNests({userBase}) {
+function MyNests({userBase, userLogs}) {
 
-    const[userLogs, setUserLogs] = useState([]);
-
-
-    // Fetching the user log
-    useEffect(()=>{
-        fetch("/userlog")
-        .then((response) => response.json())
-        .then(data => setUserLogs(data))
-    },[userLogs]);
     return (
         
         <div className="myNests">

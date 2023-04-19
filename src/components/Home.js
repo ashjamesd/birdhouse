@@ -3,7 +3,7 @@ import MainLog from './MainLog.js'
 import MainPageButtons from "./MainPageButtons.js";
 import BottomLogOut from "./BottomLogOut"
 
-function Home({user, handleLogout, onLogout, birdCard, userLog, userBase}) {
+function Home({user, handleLogout, onLogout, birdCard, userLogs, userBase}) {
     
     // console.log(birdCard)
     // console.log(userLog.length)
@@ -26,7 +26,7 @@ function Home({user, handleLogout, onLogout, birdCard, userLog, userBase}) {
     return (
         <div className="home">
             <h1 className="welcome">Welcome {user.username}</h1>
-            <MainLog birdCard = {birdCard} userLog = {userLog} userBase={userBase}/>
+            <MainLog birdCard = {birdCard} userLogs = {userLogs} userBase={userBase}/>
             <MainPageButtons />
             <BottomLogOut handleLogout={handleLogout} onLogout={onLogout}/>
         </div>
