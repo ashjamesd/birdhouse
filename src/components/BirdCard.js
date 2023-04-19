@@ -34,6 +34,9 @@ function BirdCard({id, key, birdID, notes, image, userLogs, created_at, userBase
         fetch(`userlog/${id}`,{
             method: "DELETE",
         })
+
+        console.log(id)
+        
     }
 
     function handlePatchClick(){
