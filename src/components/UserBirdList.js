@@ -1,16 +1,18 @@
 import React from "react";
 import BirdCard from "./BirdCard";
 
-function UserBirdList({userLogs}) {
+function UserBirdList({userLogs, userBase}) {
 
 
-    const mappedUserLogs = userLogs.map((userLog) => {
+    const mappedUserLog = userLogs.map((userLog) => {
         return(
             <BirdCard
+            userId = {userLog.user_id}
+            userBase = {userBase}
             userLogs = {userLogs}
             key = {userLog.sighting_id}
             id = {userLog.sighting_id}
-            birdID = {userLog.bird_id}
+            birdID = {userLog.bird_id - 1} //cheeky minus1
             notes = {userLog.notes}
             image = {userLog.image}
             created_at={userLog.created_at}
@@ -19,7 +21,7 @@ function UserBirdList({userLogs}) {
     })
 
     return(
-        <ul className = "birdCards">{mappedUserLogs}</ul>
+        <ul className = "birdCards">{mappedUserLog}</ul>
     )
 }
   export default UserBirdList;

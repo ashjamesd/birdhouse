@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import UserBirdList from "./UserBirdList";
 
-function MyNests() {
+function MyNests({userBase}) {
 
     const[userLogs, setUserLogs] = useState([]);
 
@@ -17,7 +17,7 @@ function MyNests() {
         
         <div className="myNests">
             <h1>My Nests</h1>
-            <UserBirdList userLogs = {userLogs}/>
+            <UserBirdList userLogs = {userLogs} userBase={userBase}/>
             <Link to='/' id="returnHome">Return Home</Link>
         </div>
         
