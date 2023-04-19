@@ -249,7 +249,7 @@ def login():
         session['user_id'] = user.user_id
         db.session.commit()
 
-        # new_session = Session(session_id = session.sid, user_id = user.user_id, data = session.items())
+        # new_session = Session(id = session.sid, user_id = user.user_id, data = session.items())
         # server_session.add(new_session)
         # server_session.commit()
 
@@ -274,7 +274,7 @@ def check_session():
 @app.route('/logout', methods=["DELETE"])
 def logout():
     session['user_id'] = None
-    # return{'message':'204:No Content'}, 204
+    return{'message':'204:No Content'}, 204
 
 
 

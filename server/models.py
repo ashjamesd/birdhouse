@@ -77,3 +77,13 @@ class BirdSeason(db.Model, SerializerMixin):
     birdseason_id = db.Column(db.Integer, primary_key = True)
     bird_id = db.Column(db.Integer, db.ForeignKey('birds.bird_id'))
     season_id = db.Column(db.Integer, db.ForeignKey('seasons.season_id'))
+
+# class Session(db.Model, SerializerMixin):
+#     __tablename__ = "sessions"
+#     id = db.Column(db.Integer, primary_key = True)
+#     user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'))
+#     session_id = db.Column(db.String)
+#     data = db.Column(db.String)
+
+
+

@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import logo from './logo.svg';
 import './App.css';
-import{Route, Routes} from "react-router-dom";
+import{Route, Routes, Navigate} from "react-router-dom";
 import Home from './components/Home.js';
 import LogABird from './components/LogABird';
 import BirdID from './components/BirdID';
@@ -45,7 +45,7 @@ function App() {
           response.json().then((user) => setUser(user));
         }
       });
-    }, [user]);
+    }, []);
 
     useEffect(()=>{
       if(user){
@@ -53,7 +53,9 @@ function App() {
     },[user])
 
     function onLogout(){
-      setUser(null)
+      console.log(user)
+      setUser('') 
+      console.log(user)
     }
 
     
@@ -61,7 +63,7 @@ function App() {
       fetch("/logout",{
           method: "DELETE",
       })
-      .then(()=>onLogout())
+      // .then(()=>onLogout())
   }
 
   if(user){
@@ -81,7 +83,7 @@ function App() {
     )}
   return(
     <Routes>
-      <Route path="login" element={<Login/>}/>
+      <Route path="/" element={<Login/>}/>
       <Route path="register" element={<Register/>}/>
     </Routes>
   )
