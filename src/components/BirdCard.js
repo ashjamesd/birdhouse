@@ -5,6 +5,8 @@ import { birdContext } from "../App";
 
 
 function BirdCard({id, key, birdID, notes, image, userLogs, created_at, userBase}) {
+  
+  // console.log(typeof userLogs)
 
     const[birdCard, setBirdCard] = useContext(birdContext);
     const[patchMode, setPatchMode] = useState(false);
@@ -58,7 +60,6 @@ function BirdCard({id, key, birdID, notes, image, userLogs, created_at, userBase
       }
 
       let userlogsoneuserid = userLogs[1].user_id - 1
-      // console.log(userBase[userlogsoneuserid].username)
     
 
     
@@ -73,7 +74,7 @@ function BirdCard({id, key, birdID, notes, image, userLogs, created_at, userBase
                 <p>Notes: {notes}</p>
             )}
             <img src={image}></img>
-            {/* <p>{user[userlogsoneuserid]}</p> */}
+            <p>Logged by: {userBase[userlogsoneuserid].username}</p>
             <button onClick={handleDeleteClick} >Remove from Log</button>
             {!patchMode && <button onClick={handlePatchClick}>Edit</button>}
             {patchMode && <button onClick={handleSaveClick}>Save</button>}

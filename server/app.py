@@ -70,8 +70,8 @@ def log_bird():
 
     bird = Bird.query.filter_by(common_name = log['name']).first()
 
-    print(user.email)
-    print(bird.scientific_name)
+    # print(user.email)
+    # print(bird.scientific_name)
 
     if user and bird:
         new_sighting = Sighting(
