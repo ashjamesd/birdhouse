@@ -79,7 +79,7 @@ function BirdCard({id, key, birdID, notes, image, userLogs, created_at, userBase
             ) : (
                 <p>Notes: {notes}</p>
             )}
-            <img src={image}></img>
+            <img src={image} className='birdCardImage'></img>
             <p>Logged by: {userBase[useridsubone].username}</p>
             <button onClick={handleDeleteClick} >Remove from Log</button>
             {!patchMode && <button onClick={handlePatchClick}>Edit</button>}
