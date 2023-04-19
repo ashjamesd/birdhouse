@@ -3,12 +3,17 @@ from sqlalchemy import MetaData
 from sqlalchemy.orm import validates
 from sqlalchemy.ext.associationproxy import association_proxy
 from sqlalchemy_serializer import SerializerMixin
+from uuid import uuid4
+
 
 metadata = MetaData(naming_convention={
     "fk": "fk_%(table_name)s_%(column_0_name)s_%(referred_table_name)s",
 })
 
 db = SQLAlchemy(metadata=metadata)
+
+# def get_uuid():
+#     return uuid4().hex
 
 class Sighting(db.Model, SerializerMixin):
     __tablename__ = 'sightings'
@@ -32,6 +37,7 @@ class User(db.Model, SerializerMixin):
     __tablename__ = 'users'
 
     user_id = db.Column(db.Integer, primary_key = True)
+    # unique = True, default = get_uuid)
     username = db.Column(db.String)
     email = db.Column(db.String)
     password = db.Column(db.String)
@@ -71,3 +77,13 @@ class BirdSeason(db.Model, SerializerMixin):
     birdseason_id = db.Column(db.Integer, primary_key = True)
     bird_id = db.Column(db.Integer, db.ForeignKey('birds.bird_id'))
     season_id = db.Column(db.Integer, db.ForeignKey('seasons.season_id'))
+
+# class Session(db.Model, SerializerMixin):
+#     __tablename__ = "sessions"
+#     id = db.Column(db.Integer, primary_key = True)
+#     user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'))
+#     session_id = db.Column(db.String)
+#     data = db.Column(db.String)
+
+
+

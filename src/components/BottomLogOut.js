@@ -1,10 +1,10 @@
 import React from "react";
 
-function BottomLogOut() {
+function BottomLogOut({handleLogout, onLogout}) {
     return (
         
         <div className="bottomLogOut">
-            <button>Log Out</button>
+            <button onClick={handleLogout} >Log Out</button>
         </div>
         
       )
