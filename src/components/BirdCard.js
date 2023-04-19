@@ -4,7 +4,7 @@ import { birdContext } from "../App";
 
 
 
-function BirdCard({id, key, birdID, notes, image, userLogs, created_at}) {
+function BirdCard({id, key, birdID, notes, image, userLogs, created_at, userBase}) {
 
     const[birdCard, setBirdCard] = useContext(birdContext);
     const[patchMode, setPatchMode] = useState(false);
@@ -17,7 +17,7 @@ function BirdCard({id, key, birdID, notes, image, userLogs, created_at}) {
     },[])
 
     useEffect(()=>{
-        console.log(birdCard)
+        console.log(birdCard[id].common_name)
 
     },[])
 
@@ -57,17 +57,23 @@ function BirdCard({id, key, birdID, notes, image, userLogs, created_at}) {
         setUpdatedNotes(e.target.value)
       }
 
+      let userlogsoneuserid = userLogs[1].user_id - 1
+      // console.log(userBase[userlogsoneuserid].username)
+    
+
     
     return (
         <li className = "birdCard">
-            {/* <p>Bird:{birdCard[]}</p> */}
+            <p>Bird: {birdCard[birdID].common_name}</p>
+            <p>Scientific Name: {birdCard[birdID].scientific_name}</p>
             <p>Spotted on: {created_at}</p>
             {patchMode ? (
                 <textarea value ={updatedNotes} onChange={handleNotesChange} />
             ) : (
                 <p>Notes: {notes}</p>
             )}
-            <p>{image}</p>
+            <img src={image}></img>
+            {/* <p>{user[userlogsoneuserid]}</p> */}
             <button onClick={handleDeleteClick} >Remove from Log</button>
             {!patchMode && <button onClick={handlePatchClick}>Edit</button>}
             {patchMode && <button onClick={handleSaveClick}>Save</button>}

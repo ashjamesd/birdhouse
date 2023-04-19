@@ -1,8 +1,8 @@
-"""new migration
+"""setting new mg with time instead of dt
 
-Revision ID: b2272146fe34
+Revision ID: 7e576c729958
 Revises: 
-Create Date: 2023-04-18 20:53:00.686245
+Create Date: 2023-04-19 00:07:15.364338
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'b2272146fe34'
+revision = '7e576c729958'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -69,7 +69,7 @@ def upgrade():
     )
     op.create_table('sightings',
     sa.Column('sighting_id', sa.Integer(), nullable=False),
-    sa.Column('created_at', sa.DateTime(), server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=True),
+    sa.Column('created_at', sa.Time(), server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=True),
     sa.Column('image', sa.String(), nullable=True),
     sa.Column('notes', sa.String(), nullable=True),
     sa.Column('location_id', sa.Integer(), nullable=True),

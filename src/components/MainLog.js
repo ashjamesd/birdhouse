@@ -5,7 +5,7 @@ function MainLog({birdCard, userLog, userBase}) {
     // if(userLog.length >1 ){
 
     //     console.log(userLog.length)}
-    if(userLog.length >1){
+    if(userLog.length >=1){
 
         function getRandomInt(min, max) {
             min = Math.ceil(min);
@@ -50,6 +50,9 @@ function MainLog({birdCard, userLog, userBase}) {
     }
     else{
         console.log("waiting")
+        return(
+            <h1>no birds today</h1>
+        )
     }
 }
 

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 export const Register = (props) => {
     const[email, setEmail] = useState("");
@@ -26,6 +27,7 @@ export const Register = (props) => {
 
     return(
         <div className="userAuth">
+            <h1>Register</h1>
             <form className="register" onSubmit={handleSubmit}>
                 <label htmlFor='name'>Username: </label>
                 <input value = {username} onChange={(e) => setUsername(e.target.value)} placeholder="username" />
@@ -35,6 +37,7 @@ export const Register = (props) => {
                 <input value = {password} onChange={(e) => setPassword(e.target.value)} type="password" placeholder="input password" id="password" name="password"/>
                 <button type="submit">Register</button>
             </form>
+            <Link to='/'>Already have an account?</Link>
         </div>
     )
 }
