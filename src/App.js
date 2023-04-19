@@ -63,14 +63,14 @@ function App() {
       fetch("/logout",{
           method: "DELETE",
       })
-      // .then(()=>onLogout())
+      .then(()=>onLogout())
   }
 
   if(user){
     return(
       <birdContext.Provider value = {[birdCard, setBirdCard]}>
       <Routes>
-        <Route path="/" element={<Home user = {user} handleLogout={handleLogout} onLogout={onLogout}/>} />
+        <Route path="/" element={<Home user = {user} handleLogout={handleLogout} onLogout={onLogout} birdCard={birdCard} userLog={userLog}/>} />
         <Route path="/sightinginfo" element={<MoreInfo/>} />
         <Route path="birdlog" element={<LogABird/>}/>
         <Route path="birdidentifier" element={<BirdID/>}/>
