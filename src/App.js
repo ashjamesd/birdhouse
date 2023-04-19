@@ -14,6 +14,8 @@ import EditLog from './components/EditLog';
 
 export const birdContext = createContext();
 
+export const userLogContext = createContext();
+
 function App() {
 
   const[birdCard, setBirdCard] = useState([]);
@@ -81,6 +83,7 @@ function App() {
   if(user){
     return(
       <birdContext.Provider value = {[birdCard, setBirdCard]}>
+      <userLogContext.Provider value = {[userLogs, setUserLogs]}>
       <Routes>
         <Route path="/" element={<Home user = {user} handleLogout={handleLogout} onLogout={onLogout} birdCard={birdCard} userLogs={userLogs} userBase = {userBase}/>} />
         <Route path="/sightinginfo" element={<MoreInfo/>} />
@@ -91,6 +94,7 @@ function App() {
         <Route path="register" element={<Register/>}/>
         <Route path="editlog" element={<EditLog userLogs={userLogs}/>}/>
       </Routes>
+      </userLogContext.Provider>
       </birdContext.Provider>
     )}
   return(

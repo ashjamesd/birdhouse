@@ -1,10 +1,11 @@
 import { useContext } from "react";
 import React, {useEffect, useState} from "react";
 import { birdContext } from "../App";
+import { userLogContext } from "../App";
 
 
 
-function BirdCard({id, key, birdID, notes, image, userLogs, created_at, userBase, userId}) {
+function BirdCard({id, key, birdID, notes, image, created_at, userBase, userId}) {
   
   // if(userBase[1].username){
   //   console.log('yes')}
@@ -36,6 +37,15 @@ function BirdCard({id, key, birdID, notes, image, userLogs, created_at, userBase
         })
 
         console.log(id)
+
+        .then((r) => {
+          if (r.ok) {
+            // Remove the bird log from front end by filtering out the deleted log
+            setUserLogs((userLogs) =>
+              userLogs.filter((userLog) => userLog.id !== id)
+            );
+          }
+        }) 
         
     }
 
