@@ -4,14 +4,8 @@ import { birdContext } from "../App";
 
 
 
-function BirdCard({id, key, birdID, notes, image, userLogs, created_at, userBase, userId}) {
+function BirdCard({id, key, birdID, notes, image, userLogs, created_at, userBase, userId, setUserLogs}) {
   
-  // if(userBase[1].username){
-  //   console.log('yes')}
-  // else{
-  //   console.log('waiting...')
-  // }
-  // console.log(typeof userLogs)
 
     const[birdCard, setBirdCard] = useContext(birdContext);
     const[patchMode, setPatchMode] = useState(false);
@@ -35,8 +29,14 @@ function BirdCard({id, key, birdID, notes, image, userLogs, created_at, userBase
             method: "DELETE",
         })
 
-        console.log(id)
-        
+        .then((r) => {
+          if (r.ok) {
+            setUserLogs((userLogs) =>
+              userLogs.filter((userLog) => userLog.id !== id)
+            );
+          }
+        })
+
     }
 
     function handlePatchClick(){
@@ -84,7 +84,7 @@ function BirdCard({id, key, birdID, notes, image, userLogs, created_at, userBase
             )}
             <img src={image} className='birdCardImage'></img>
             <p>Logged by: {userBase[useridsubone].username}</p>
-            <button onClick={handleDeleteClick} >Remove from Log</button>
+            <button onClick={handleDeleteClick()} >Remove from Log</button>
             {!patchMode && <button onClick={handlePatchClick}>Edit</button>}
             {patchMode && <button onClick={handleSaveClick}>Save</button>}
         </li>

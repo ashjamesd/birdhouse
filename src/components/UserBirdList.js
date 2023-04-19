@@ -1,12 +1,13 @@
 import React from "react";
 import BirdCard from "./BirdCard";
 
-function UserBirdList({userLogs, userBase}) {
+function UserBirdList({userLogs, userBase, setUserLogs}) {
 
 
     const mappedUserLog = userLogs.map((userLog) => {
         return(
             <BirdCard
+            setUserLogs={setUserLogs}
             userId = {userLog.user_id}
             userBase = {userBase}
             userLogs = {userLogs}

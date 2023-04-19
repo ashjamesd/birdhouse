@@ -86,7 +86,7 @@ function App() {
         <Route path="/sightinginfo" element={<MoreInfo/>} />
         <Route path="birdlog" element={<LogABird/>}/>
         <Route path="birdidentifier" element={<BirdID birdCard={birdCard}/>}/>
-        <Route path="mynests" element={<MyNests userBase={userBase} userLogs={userLogs}/>}/>
+        <Route path="mynests" element={<MyNests userBase={userBase} userLogs={userLogs} setUserLogs={setUserLogs}/>}/>
         <Route path="login" element={<Login/>}/>
         <Route path="register" element={<Register/>}/>
         <Route path="editlog" element={<EditLog userLogs={userLogs}/>}/>
