@@ -36,6 +36,7 @@
   border-radius: 90px;
   width: 30%;
   background-color: #3962910e;
+  font-size: 14pt;
 }
 
 #password{
@@ -109,7 +110,7 @@
 }
 
 .mainLogHeader{
-  font-size: 16pt;
+  font-size: 15pt;
 }
 
 .mainLogImage{
@@ -215,24 +216,24 @@
 
 .dropdown{
 
-  margin-top: 10%;
-  margin-bottom: 1%;
+  margin-top: 6%;
+  margin-bottom: 0%;
 
 }
 
 .dropdownBodyColor{
   margin-top: 0%;
   margin-left: 0%;
-  margin-top: 2%;
+  margin-top: 4%;
   padding-top: 1%;
 }
 .dropdownNeckColor{
-  margin-top: 4%;
+  margin-top: 6%;
   margin-left: 0%;
   padding-top: 1%;
 }
 .dropdownEyeColor{
-  margin-top: 6%;
+  margin-top: 8%;
   margin-left: 0%;
   padding-top: 1%;
   padding-bottom: 10%;
@@ -246,6 +247,7 @@
   border-radius: 2px;
   border-width: 1px;
   background-color: whitesmoke;
+  z-index: -20;
 }
 
 .dropdown-item:hover{

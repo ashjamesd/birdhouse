@@ -7,7 +7,7 @@ function Header({user}) {
         
         <div className="header">
             <h1 className="welcomeUser">{user.username}</h1>
-            <img className="birdsNestLogo" src="https://i.ibb.co/CtsYBkL/Birdsnest-logo2.png"></img>
+            <img className="birdsNestLogo" src="https://i.ibb.co/7j8NLgC/Birdsnest-logo3.png"></img>
             <Link to="/">
                 <img className="doubleBirdLogo" src="https://i.ibb.co/brKSVsq/logo.png"></img>
             </Link>
