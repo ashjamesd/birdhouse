@@ -75,6 +75,7 @@ def log_bird():
 
     if user and bird:
         new_sighting = Sighting(
+            username = user.username,
             user_id = user.user_id,
             bird_id = bird.bird_id,
             notes = log.get('notes'),

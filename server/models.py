@@ -22,10 +22,12 @@ class Sighting(db.Model, SerializerMixin):
     created_at = db.Column(db.DateTime, server_default = db.func.now())
     image = db.Column(db.String)
     notes = db.Column(db.String)
+    username = db.Column(db.String)
 
     location_id = db.Column(db.Integer, db.ForeignKey('locations.location_id'))
     bird_id = db.Column(db.Integer, db.ForeignKey('birds.bird_id'))
     user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'))
+
 
     @validates('notes')
     def validates_notes(self,key,notes):
