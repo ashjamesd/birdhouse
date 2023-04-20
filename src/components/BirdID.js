@@ -81,13 +81,14 @@ function BirdID(birdCard) {
 
     return (
         <div className="birdID">
-            <h1>Identify a Bird</h1>
+            <h1 className="birdIdTitle">Identify a Bird</h1>
 
             <Dropdown className="dropdown">
                 <Dropdown.Toggle variant="success" id="dropdown-basic">
                     Select a Body Color
                 </Dropdown.Toggle>
 
+                
                 <Dropdown.Menu className="dropdownBodyColor">
                     <Dropdown.Item onClick={() => handleColorSelect("black")}>Black</Dropdown.Item>
                     <Dropdown.Item onClick={() => handleColorSelect("brown")}>Brown</Dropdown.Item>
@@ -120,7 +121,7 @@ function BirdID(birdCard) {
 
             </Dropdown> 
             
-            <Link to='/' className="returnHome">Return Home</Link>
+            {/* <Link to='/' className="returnHome">Return Home</Link> */}
             {birdArray.map(bird => (
                 <div key={bird.common_name}>
                     <p>{bird.common_name}</p>
