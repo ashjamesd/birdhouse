@@ -2,9 +2,11 @@ import React, {useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import UserBirdList from "./UserBirdList";
 
-function MyNests({userBase}) {
+function MyNests({userBase, seasons, birdseasons}) {
 
     const[userLogs, setUserLogs] = useState([]);
+
+    
 
 
     // Fetching the user log
@@ -17,7 +19,7 @@ function MyNests({userBase}) {
         
         <div className="myNests">
             <h1 className="myNestsHeader" >Community Nests</h1>
-            <UserBirdList userLogs = {userLogs} userBase={userBase}/>
+            <UserBirdList userLogs = {userLogs} userBase={userBase} seasons={seasons} birdseasons={birdseasons}/>
             {/* <Link to='/' id="returnHome">Return Home</Link> */}
         </div>
         

@@ -4,7 +4,7 @@ import { birdContext } from "../App";
 
 
 
-function BirdCard({id, key, birdID, notes, image, userLogs, created_at, userBase, userId}) {
+function BirdCard({id, key, birdID, notes, image, userLogs, created_at, userBase, userId, seasonName,seasons}) {
   
   // if(userBase[1].username){
   //   console.log('yes')}
@@ -18,15 +18,15 @@ function BirdCard({id, key, birdID, notes, image, userLogs, created_at, userBase
     const[updatedNotes, setUpdatedNotes] = useState(notes);
 
 
-    useEffect(()=>{
-        console.log({id})
+    // useEffect(()=>{
+    //     console.log({id})
 
-    },[])
+    // },[])
 
-    useEffect(()=>{
-        console.log(birdCard[id].common_name)
+    // useEffect(()=>{
+    //     console.log(birdCard[id].common_name)
 
-    },[])
+    // },[])
 
 
     function handleDeleteClick(userLogs){
@@ -68,7 +68,7 @@ function BirdCard({id, key, birdID, notes, image, userLogs, created_at, userBase
       }
 
       let useridsubone = userId - 1
-      console.log(userBase[useridsubone].username)
+      // console.log(userBase[useridsubone].username)
     
 
     
@@ -77,6 +77,7 @@ function BirdCard({id, key, birdID, notes, image, userLogs, created_at, userBase
             <p>Bird: {birdCard[birdID].common_name}</p>
             <p>Scientific Name: {birdCard[birdID].scientific_name}</p>
             <p>Spotted on: {created_at}</p>
+            <p>Season: {seasons[seasonName].name_full}</p>
             {patchMode ? (
                 <textarea value ={updatedNotes} onChange={handleNotesChange} />
             ) : (

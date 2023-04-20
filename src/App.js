@@ -20,6 +20,8 @@ function App() {
   const[birdCard, setBirdCard] = useState([]);
   const [user, setUser] = useState(null);
   const[userBase, setUserBase] = useState([]);
+  const[seasons, setSeasons] = useState([]);
+  const[birdseasons, setBirdseasons] = useState([]);
 
     useEffect(()=>{
         fetch("/birds")
@@ -29,6 +31,24 @@ function App() {
           setBirdCard(data);
         })        
     },[]);
+
+    useEffect(()=>{
+      fetch("/seasons")
+      .then((response) => response.json())
+      .then(data => {
+        // console.log(data);
+        setSeasons(data);
+      })        
+  },[]);
+
+  useEffect(()=>{
+    fetch("/birdseasons")
+    .then((response) => response.json())
+    .then(data => {
+      // console.log(data);
+      setBirdseasons(data);
+    })        
+},[]);
 
     const[userLogs, setUserLogs] = useState([]);
 
@@ -60,10 +80,10 @@ function App() {
       });
     }, []);
 
-    useEffect(()=>{
-      if(user){
-        console.log(user.username)}
-    },[user])
+    // useEffect(()=>{
+    //   if(user){
+    //     console.log(user.username)}
+    // },[user])
 
     function onLogout(){
       console.log(user)
@@ -89,7 +109,7 @@ function App() {
         <Route path="/sightinginfo" element={<MoreInfo/>} />
         <Route path="birdlog" element={<LogABird/>}/>
         <Route path="birdidentifier" element={<BirdID birdCard={birdCard}/>}/>
-        <Route path="mynests" element={<MyNests userBase={userBase} userLogs={userLogs}/>}/>
+        <Route path="mynests" element={<MyNests userBase={userBase} userLogs={userLogs} seasons={seasons} birdseasons={birdseasons}/>}/>
         <Route path="login" element={<Login/>}/>
         <Route path="register" element={<Register/>}/>
         <Route path="editlog" element={<EditLog userLogs={userLogs}/>}/>
