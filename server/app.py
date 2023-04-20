@@ -3,7 +3,7 @@ from flask_bcrypt import Bcrypt
 from flask_session import Session
 from flask_migrate import Migrate
 from flask_restful import Api, Resource
-from models import db, User, Bird, Sighting, Location
+from models import db, User, Bird, Sighting, Location, Season, BirdSeason
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
@@ -303,6 +303,35 @@ def get_bird_by_ID(id):
     bird_dict,
     200
     )
+
+    return response
+
+#hard-coded seasons
+@app.route('/seasons', methods=["GET"])
+def get_seasons():
+    seasons = Season.query.all()
+    seasons_dict = [season.to_dict() for season in seasons]
+
+    response = make_response(
+        jsonify(seasons_dict),
+        200
+    )
+
+    return response
+
+
+#hard-coded birdseasons
+@app.route('/birdseasons', methods=["GET"])
+def get_birdseasons():
+    birdseasons = BirdSeason.query.all()
+    birdseasons_dict = [birdseason.to_dict() for birdseason in birdseasons]
+
+    response = make_response(
+        jsonify(birdseasons_dict),
+        200
+    )
+
+
 
     return response
 
