@@ -6,8 +6,8 @@ function Header({user}) {
     return (
         
         <div className="header">
-            <h1 className="welcomeUser">Welcome: {user.username}</h1>
-            <img className="birdsNestLogo" src="https://i.ibb.co/bb7GWcW/Birdsnest-logo.png"></img>
+            <h1 className="welcomeUser">{user.username}</h1>
+            <img className="birdsNestLogo" src="https://i.ibb.co/CtsYBkL/Birdsnest-logo2.png"></img>
             <Link to="/">
                 <img className="doubleBirdLogo" src="https://i.ibb.co/brKSVsq/logo.png"></img>
             </Link>

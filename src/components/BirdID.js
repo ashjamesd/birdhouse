@@ -106,6 +106,11 @@ function BirdID(birdCard) {
                     <Dropdown.Item onClick={() => handleNeckColorSelect("gray")}>Gray</Dropdown.Item>
                 </Dropdown.Menu>
 
+
+                <Dropdown.Toggle variant="success" id="dropdown-basic">
+                    Select an Eye Color
+                </Dropdown.Toggle>
+
                 <Dropdown.Menu className="dropdownEyeColor">
                     <Dropdown.Item onClick={() => handleEyeColorSelect("red")}>Red</Dropdown.Item>
                     <Dropdown.Item onClick={() => handleEyeColorSelect("brown")}>Brown</Dropdown.Item>

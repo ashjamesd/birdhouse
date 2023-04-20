@@ -57,19 +57,19 @@ function LogABird() {
     return (
         <div className="userLog">
             <form onSubmit={handleSubmit} className="birdLog">
-                <h2>Log a Bird</h2>
+                <h2 className="logBirdTitle">Log a Bird</h2>
                 <label>Birdname:</label>
-                <input type="text" id="birdName" onChange={handleBirdChange} value={birdName}/>
+                <input type="text" id="birdName" className="birdNameTitle" onChange={handleBirdChange} value={birdName}/>
                 <label>Username:</label>
-                <input type="text" id="birdUser" onChange={handleUserChange} value={birdUser}/>
+                <input type="text" id="birdUser" className="birdUserTitle" onChange={handleUserChange} value={birdUser}/>
                 <label>Notes:</label>
-                <input type="text" id="birdNotes" onChange={handleNoteChange} value={birdNotes}/>
+                <input type="text" id="birdNotes" className="birdNotesTitle" onChange={handleNoteChange} value={birdNotes}/>
                 <label>Image:</label>
-                <input type="text" id="birdImage" onChange={handleImageChange} value={birdImage}/>
+                <input type="text" id="birdImage" className="birdImageTitle" onChange={handleImageChange} value={birdImage}/>
                 {/* <label>Image:</label> */}
                 {/* <input type="file" id="birdImage" name="birdImage" accept="image/*"/> */}
-                <button type = "submit">Submit</button>
-                <Link to='/' id="returnHome">Return Home</Link>
+                <button type = "submit" className="logBirdSubmit">Submit</button>
+                <Link to='/' id="returnHome" className="returnHome">Return Home</Link>
             </form>
         </div>
       )
