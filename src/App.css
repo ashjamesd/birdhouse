@@ -10,13 +10,14 @@
   width: 12%;
   border-style:dotted;
   border-color:#969696;
-  border-width: 70px;
-  border-radius: 400px;
+  border-width: 20px;
+  border-radius: 200px;
   background-color: whitesmoke;
   background-color: #4574aa;
   box-shadow: 5px 5px 1px rgba(152, 152, 153, 0.712); 
 
 }
+
 
 .login{
   padding-top:  15%;
@@ -24,45 +25,63 @@
   margin-right: auto;
   margin-left: auto;
   padding: 0%;
+  color: #233229;
 }
 
 .loginTitle{
-  color:#233229
+  color:#233229;
+  border-style: dotted;
+  border-color:#969696;
+  border-width: 10px;
+  border-radius: 90px;
+  width: 30%;
+  background-color: #3962910e;
 }
 
 #password{
-  border-style: solid;
-  border-color: black;
-  border-width: 1px;
-  width: 20%;
+  border-style:dashed;
+  border-color:#4574aab2;
+  border-width: 40px;
+  border-radius: 100px;
+  background-color: #1e58973f;
+  width: 99%;
 }
 
 
 #email{
-  border-style: dotted;
-  border-color:#085743;
-  border-width: 7px;
+  border-style:dashed;
+  border-color:#4574aab2;
+  border-width: 32px;
   border-radius: 100px;
-  background-color: #4574aa;
-  width: 80%;
+  background-color: #1e58973f;
+  width: 99%;
+}
 
+#username{
+  border-style:dashed;
+  border-color:#4574aab2;
+  border-width: 20px;
+  border-radius: 100px;
+  background-color: #1e58973f;
+  width: 90%;
 }
 
 .loginButton{
   margin-top: 6%;
-  border-style: solid;
+  border-style: none;
   border-width: 1px;
-  border-radius: 2px;
-  border-color: #969696;
-  background-color: white;
+  border-radius: 30px;
+  border-color:rgba(255, 187, 0, 0.068);
+  background-color: rgba(255, 187, 0, 0.075);
   width: 40%;
+  color: #233229;
 }
 
 .loginButton:hover{
   margin-top: 6%;
-  border-style: solid;
+  border-style: none;
   border-width: 1px;
-  border-radius: 2px;
+  border-radius: 20px;
   border-color: #4574aa;
   background-color: #4574aa;
   color: whitesmoke;
@@ -71,10 +90,15 @@
 
 
 .registerLink{
-  margin-left: auto;
-  margin-right: auto;
-  width: 8%;
+  color:#233229;
+  border-style: dotted;
+  border-color:#919191;
+  border-width:7px;
+  border-radius: 30px;
+  width: 40%;
+  background-color: #3962910e;
 }
+
 
 .mainPageButtons{
   margin-top: 2%;
