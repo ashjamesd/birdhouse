@@ -18,7 +18,7 @@ function MyNests({userBase}) {
         <div className="myNests">
             <h1 className="myNestsHeader" >Community Nests</h1>
             <UserBirdList userLogs = {userLogs} userBase={userBase}/>
-            <Link to='/' id="returnHome">Return Home</Link>
+            {/* <Link to='/' id="returnHome">Return Home</Link> */}
         </div>
         
       )
