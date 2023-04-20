@@ -40,7 +40,7 @@ function MainLog({birdCard, userLogs, userBase}) {
         return (
             
             <div className="MainLog">
-                <h4 className="mainLogHeader" >Selected Community Log:</h4>
+                <h4 className="mainLogHeader" >Select Community Log:</h4>
                 <img className="mainLogImage" src={userLogs[rando].image} alt='Eared_Greabe'/>
                 <p className="ticker"> Bird: {birdCard[randomBirdId].common_name} | Log Notes: {userLogs[rando].notes} |Logged by: {userBase[assocUserId].username} </p>
                 {/* <Link to='/sightinginfo' id="sightingInfo" birdCard={birdCard} randomBirdId={randomBirdId} userBase={userBase} userLog={userLog} assocUserId={assocUserId}>more info</Link> */}
